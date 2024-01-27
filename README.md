@@ -13,6 +13,8 @@ The classes are fairly sparse and some aspects written into them were unused in 
 
 ### Database Setup
 
+SQLite datbase can be [downloaded here](https://drive.google.com/file/d/1O2We7blACF9vvHB5XQ-W6MRU0LQXU-UE/view?usp=sharing).
+
 All property data available is contained within the transactions file, so this is what will be worked from. Each transaction contains the PAON (primary ID), SAON (secondary ID) and postcode of a property.  While a primary ID combined with a postcode might isolate most properties, there’s still the issue of sub-addresses (e.g. blocks of flats). Combining the PAON, SAON and postcode alone ensures that each property is distinct without needing further data, allowing for the creation of a composite primary key in a seperate properties table (as seen in data_load_functions).
 
 Using sqlite, a primary key is already inserted as rowid. However, in MSSQL it would be advantageous for the sake of simplicty and performance to include a seperate primary key (such as an autoincrementing integer) to avoid relying on a complex composite.
